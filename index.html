@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Cemaptery</title>
+        <!--A few files, libraries, and plug-ins are referenced below-->
+
+        <!--Bootstrap-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--Leaflet-->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+
+        <!--Mapbox-->
+        <script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
+        <link href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css' rel='stylesheet' />
+
+        <!--CSS Stylesheet-->
+        <link rel="stylesheet" href="styles.css">
+
+        <!--Overlapping Marker Spiderfier for Leaflet-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OverlappingMarkerSpiderfier-Leaflet/0.2.6/oms.min.js"></script>
+
+        <!--Leaflet.markercluster-->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
+        <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    </head>
+
+    <body>
+        <div>
+        <h1> Welcome to Cemaptery! </h1>
+
+        <h4> To begin searching for graves in Calgary, enter a first and last name: </h4>
+            <!--Form to enter first name and last name-->
+            <form onsubmit="findGraves1(); return false;">
+                <label>First Name</label>
+                <input type="text" id="fname">
+                <label>Last Name</label>
+                <input type="text" id="lname">
+                <input type="submit">
+            </form>
+
+        <h4> Or enter a year of burial: </h4>
+            <!--Form to enter a year of burial-->
+            <form onsubmit="findGraves2(); return false;">
+                <input type="number" id="year">
+                <input type="submit">
+            </form>
+
+        <h4> Or select a cemetery: </h4>
+        <!--Form to select a cemetery from dropdown menu-->
+        <form onsubmit="findGraves3(); return false;">
+            <select id="cemeteries" name="cemeteries">
+                <option value ="QUEENS_PARK">Queen's Park Cemetery</option>
+                <option value ="BURNSLAND">Burnsland Cemetery</option>
+                <option value ="UNION">Union Cemetery</option>
+                <option value ="ST_MARYS">St. Mary's Cemetery</option>
+                <option value ="QUEENS_PARK_MAUSOLEUM">Queen's Park Mausoleum</option>
+                <option value ="CHINESE">Chinese Cemetery</option>
+                <option value ="ST_MARYS_PIONEER">St. Mary's Pioneer Cemetery</option>
+            </select>
+            <input type="submit">
+        </form>
+        </div>
+
+        <div id = "map"></div> <!--Allocate space for the map-->
+        <script src="main.js"></script> <!--Reference a Javascript file where all the JavaScript code is written-->
+    </body>
+
+</html>
